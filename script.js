@@ -4,11 +4,25 @@ var p1Display = document.querySelector("#p1Display");
 var p2Display = document.querySelector("#p2Display");
 var p1Score = 0;
 var p2Score = 0;
+var gameOver = false;
+var winningScore = 5;
 
 p1Button.addEventListener("click", function(){
-	p1Display.textContent = ++p1Score;
+	if(!gameOver)
+		p1Display.textContent = ++p1Score;
+	if(p1Score === winningScore)
+	{
+		p1Display.classList.add("winner");
+		gameOver = true;
+	}
 });
 
 p2Button.addEventListener("click", function(){
-	p2Display.textContent = ++p2Score;
+	if(!gameOver)
+		p2Display.textContent = ++p2Score;
+	if(p2Score === winningScore)
+	{
+		p2Display.classList.add("winner");
+		gameOver = true;
+	}
 });
